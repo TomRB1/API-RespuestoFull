@@ -10,7 +10,7 @@ inventarioG = insertInventario()
 def get_inventario(cursor=Depends(getCursor)):
     return inventarioG.mostrar(cursor)
 
-@router.post("/inventario/añadir", response_model=Inventario)
+@router.post("/inventario/agregar", response_model=Inventario)
 def post_inventario(item: Inventario_, cursor=Depends(getCursor)):
     return inventarioG.agregar(item, cursor)
 
@@ -28,3 +28,4 @@ def put_inventario(id: int, item: Inventario_, cursor=Depends(getCursor)):
 @router.delete("/inventario/{id}", response_model=dict)
 def delete_inventario(id: int, cursor=Depends(getCursor)):
     return {"mensaje": inventarioG.eliminar(id, cursor)}
+
