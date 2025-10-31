@@ -10,7 +10,7 @@ clientes = insertCliente()
 def get_clientes(cursor=Depends(getCursor)):
     return clientes.Mostrar(cursor)
 
-@router.post("/clientes/añadir", response_model=Clientes)
+@router.post("/clientes/agregar", response_model=Clientes)
 def post_clientes(cliente: Clientes_, cursor=Depends(getCursor)):
     return clientes.agregar(cliente, cursor)
 
@@ -26,3 +26,4 @@ def put_clientes(id: int, cliente: Clientes_, cursor=Depends(getCursor)):
 @router.delete("/clientes/{id}", response_model=dict)
 def delete_clientes(id: int, cursor=Depends(getCursor)):
     return {"mensaje": clientes.eliminar(id, cursor)}
+
