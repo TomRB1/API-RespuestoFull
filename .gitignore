@@ -1,0 +1,12 @@
+# Entorno
+entorno-env
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Archivos del sistema
+.DS_Store
+
+# Archivos de VSCode
+.vscode/
