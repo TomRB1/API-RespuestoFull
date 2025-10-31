@@ -10,7 +10,7 @@ pedidos = insertPedido()
 def get_pedidos(cursor=Depends(getCursor)):
     return pedidos.mostrar(cursor)
 
-@router.post("/pedidos/añadir", response_model=Pedido)
+@router.post("/pedidos/agregar", response_model=Pedido)
 def post_pedido(pedido: Pedido_, cursor=Depends(getCursor)):
     return pedidos.agregar(pedido, cursor)
 
@@ -27,4 +27,5 @@ def put_pedido(id: int, pedido: Pedido_, cursor=Depends(getCursor)):
 @router.delete("/pedidos/{id}", response_model=dict)
 def delete_pedido(id: int, cursor=Depends(getCursor)):
     return {"mensaje": pedidos.eliminar(id, cursor)}
+
 
